@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<h1>Delete {{department.name}}?</h1>
+<p>Are you sure you want to delete the Department "{{ object.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" class='btn btn-danger' value="Delete">
+        <a href="{% url 'EmpRecord:department_delete' pk=department.id  %}"></a>
+</form>
+{% endblock%}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="jumbotron">
+    <h1>Welcome to the Department Detail page </h1></p>
+    <h2>Department details:</h2>
+    <p>Name: {{department.name}}</p>
+    <p>pk id : {{department.id}}</p>
+
+
+</div> 
+<div class="container">
+
+    <button>
+        <a href="{% url 'EmpRecord:department_update' pk=department.id %}">Update</a>
+   
+    </button>
+
+     <button type="submit"><a href="{% url 'EmpRecord:department_delete' department.id %}">Delete Department</a></button>
+
+     <div>
+        <ol>
+            {% for department in department_list %}
+                <h2><li><a href="{% url 'EmpRecord:department_detail' department.id %}">{{department.name}} </a></li></h2>
+                
+            {% endfor %}
+                
+        </ol>
+     </div>
+</div>
+{% endblock %}

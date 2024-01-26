@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+
+    {% if not form.instance.pk %}
+    <h1> Department Create</h1>
+    {% else %} 
+    <h1> Department Update</h1>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+            {{ form.as_p }}
+        {% if form.instance.pk %}
+            <button type="submit">Update department</button>
+
+        {% else %}
+        <button type="submit">Save Department</button>
+        {% endif %}
+    </form>
+{% endblock %}

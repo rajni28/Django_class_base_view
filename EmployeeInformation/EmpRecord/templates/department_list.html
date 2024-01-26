@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<h1> Welcome to my WEB !</h1>
+    <!-- <ol> 
+        {% for department in department_list %}
+            <h2><li><a href="{% url 'EmpRecord:department_detail'  department.id%}">{{department.name}}</a></li></h2>
+
+        {% endfor %} 
+    </ol> -->
+    <div class="container mt-3">
+        <li class="list-group-item list-group-item-success"></li>
+            <table class="table table-bordered"> 
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                  
+                    </tr>
+                </thead>
+            <tbody> 
+                {% for department in department_list %}
+                <tr>
+                        <td>{{ forloop.counter }}</td> 
+                        <td>{{department.id}}</td> 
+                        <td><a href="{% url 'EmpRecord:department_detail'  department.id %}">{{department.name}}</a></td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>   
+</div> 
+   
+{% endblock %} 
+    
